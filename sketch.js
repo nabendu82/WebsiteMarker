@@ -1,4 +1,4 @@
-var s = function(sketch) {
+let showSketch = function(sketch) {
 
     sketch.setup = function() {
       document.body.style.MozUserSelect = 'none';
@@ -18,7 +18,19 @@ var s = function(sketch) {
     }
   };
   
-  var myp5 = new p5(s);
+let myp5 = new p5(showSketch);
+
+function removeSketch() {
+  console.log('Inside removeSketch');
+}
 
 
-browser.runtime.onMessage.addListener(s);
+//browser.runtime.onMessage.addListener(s);
+
+browser.runtime.onMessage.addListener((message) => {
+  if (message.command === "highlightify") {
+    showSketch();
+  } else if (message.command === "reset") {
+    removeSketch();
+  }
+});
