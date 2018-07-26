@@ -8,6 +8,12 @@ let showSketch = function(sketch) {
       c.style('pointer-events', 'none');
       sketch.clear();
     }
+
+    /*Below is working. Disable sketch after 15 sec*/
+    // setTimeout(function() {
+    //   console.log('removed');
+    //   sketch.remove();
+    // },15000);
   
     sketch.draw = function() {
       sketch.stroke(0);
@@ -20,12 +26,12 @@ let showSketch = function(sketch) {
   
 let myp5 = new p5(showSketch);
 
+
 function removeSketch() {
-  console.log('Inside removeSketch');
+  console.log('Inside removeSketch', myp5);
+  myp5.remove(); //not working
 }
 
-
-//browser.runtime.onMessage.addListener(s);
 
 browser.runtime.onMessage.addListener((message) => {
   if (message.command === "highlightify") {
