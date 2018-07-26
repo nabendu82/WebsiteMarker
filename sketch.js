@@ -9,11 +9,12 @@ let showSketch = function(sketch) {
       sketch.clear();
     }
 
-    /*Below is working. Disable sketch after 15 sec*/
-    // setTimeout(function() {
-    //   console.log('removed');
-    //   sketch.remove();
-    // },15000);
+    /*Below is working. Disable sketch after 1.5 min*/
+    setTimeout(function() {
+      console.log('removed');
+      document.body.style.MozUserSelect = 'auto';
+      sketch.remove();
+    },60000);
   
     sketch.draw = function() {
       sketch.stroke(0);
@@ -26,10 +27,10 @@ let showSketch = function(sketch) {
   
 let myp5 = new p5(showSketch);
 
-
+//not working - TBD
 function removeSketch() {
   console.log('Inside removeSketch', myp5);
-  myp5.remove(); //not working
+  myp5.remove(); 
 }
 
 

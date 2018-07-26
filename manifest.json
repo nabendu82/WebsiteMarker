@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Website Marker",
     "description": "Mark with black pencil on any website",
-    "version": "1.0",
+    "version": "2.0",
     "icons": {
       "48": "icons/logo_48.png",
       "64": "icons/logo_64.png"
